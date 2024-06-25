@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Net.Mail;
 
 
-class Main
+class EBookService
 {
-    public static void main(string[] args)
+    public static void Main(string[] args)
     {
         EbookHandler handler = new EbookHandler();
         // Bekijk folder voor nieuwe boeken - VERDER UITWERKEN
