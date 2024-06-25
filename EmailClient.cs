@@ -1,28 +1,32 @@
 using System;
 using System.Net.Http.Headers;
 using System.Net.Mail;
+using System.Reflection;
 
-class EmailClient
+public class EmailClient
 {
-    private SmtpClient client;
-    private MailMessage message;
+    public SmtpClient client;
+    public MailMessage message;
+    public Attachment boekBestand;
 
-    EmailClient(string host, int port, string vanEmailAdres, string naarEmailAdres, string boekBestand)
+    public EmailClient(string host, int port, string vanEmailAdres, string naarEmailAdres, Attachment bestand)
     {
         this.client = new SmtpClient(host, port);
         this.message = new MailMessage(vanEmailAdres, naarEmailAdres);
-        setBestandInMail(boekBestand);
+        this.boekBestand = new Attachment(bestand.Name);
     }
 
-    void setEmailInhoud()
+    public void setEmailInhoud()
     {
-        message.Subject = "";
-        message.Body = "";
+        this.message.Attachments.Add(this.boekBestand);
+
+        this.message.Subject = this.boekBestand.Name;
+        this.message.Body = $"{this.boekBestand.Name} verstuurd met E-Book Service!";
     }
 
-    void setBestandInMail(string boekBestand)
+    public void verstuurEmail()
     {
-        Attachment bestand = new Attachment(boekBestand);
-        this.message.Attachments.Add(bestand);
+        setEmailInhoud();
+        this.client.Send(this.message);
     }
 }

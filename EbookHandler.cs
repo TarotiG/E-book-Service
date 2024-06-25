@@ -4,8 +4,9 @@ using System.Collections.Generic;
 
 class EbookHandler
 {
-    string pathBoeken = "C:\\Users\\tyron\\OneDrive\\Bureaublad\\E-book Service\\boeken";
-    string pathBoekenNietMogelijk = "C:\\Users\\tyron\\OneDrive\\Bureaublad\\E-book Service\\boeken\\niet mogelijk";
+    string pathBoeken = "C:\\Users\\tyron\\OneDrive\\Bureaublad\\E-book Service\\\\E-book Serviceboeken";
+    string pathVerstuurd = "C:\\Users\\tyron\\OneDrive\\Bureaublad\\E-book Service\\\\E-book Serviceboeken\\verstuurd";
+    string pathBoekenNietMogelijk = "C:\\Users\\tyron\\OneDrive\\Bureaublad\\E-book Service\\\\E-book Serviceboeken\\niet mogelijk";
 
     public List<string> boekenNietVerstuurd()
     {
@@ -41,6 +42,9 @@ class EbookHandler
             }
         }
     }
-
     // Method -> Boek bestand verplaatsen naar "verstuurd"
+    public void verplaatsVerstuurdeBoek(string boekBestandNaam)
+    {
+
+    }
 }
